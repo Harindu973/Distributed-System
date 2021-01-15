@@ -1,2 +1,2 @@
 # Distributed-System
-Distrubuted System Project =-  Super Market
+Distrubuted System Project =  Super Market
