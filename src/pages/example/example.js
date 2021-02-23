@@ -13,9 +13,6 @@ class Page extends Component {
             <div className="main-panel">
               <Navbar />
 
-
-              
-
             </div>
           </div>
         );

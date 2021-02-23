@@ -1,25 +1,21 @@
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import "./assets/css/material-dashboard.css";
-import Slidebar from "./components/slidebar/slidebar";
-import Navbar from "./components/navbar/navbar";
+import Login from "./pages/login/login";
 
 import LeaveMain from "./pages/leave-main/leave-main";
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <div>
         <div className="wrapper ">
-          <Slidebar />
-          <div className="main-panel">
-            <Navbar />
-            <Route exact path="/" component={LeaveMain} />
+            <Route exact path="/" component={Login} />
             <Route exact path="/leave-main" component={LeaveMain} />
+            <Route exact path="/about" component={LeaveMain} />
           </div>
         </div>
-      </div>
     </Router>
   );
 }
