@@ -31,7 +31,7 @@ class SideBar extends Component {
         <div className="sidebar-wrapper">
           <ul className="nav">
             <li
-              className={`nav-item ${queryName === "main" ? "active" : null}`}
+              className={`nav-item ${queryName === "dashboard" ? "active" : null}`}
             >
               <Link className="nav-link" to="/dashboard/main">
                 {/* <i className="material-icons">dashboard</i> */}
@@ -40,37 +40,34 @@ class SideBar extends Component {
               </Link>
             </li>
             <li
-              className={`nav-item ${
-                queryName === "profile" ? "active" : null
-              }`}
+              className={`nav-item ${queryName === "employee" ? "active" : null
+                }`}
             >
-              <Link className="nav-link" to="/dashboard/profile">
+              <Link className="nav-link" to="/dashboard/employee">
                 {/* <i className="material-icons">person</i> */}
                 <img src={Employee} alt="Employee" />
 
-                <p id="text">Profile</p>
+                <p id="text">Employee</p>
               </Link>
             </li>
             <li
-              className={`nav-item ${
-                queryName === "calendar" ? "active" : null
-              }`}
+              className={`nav-item ${queryName === "attendance" ? "active" : null
+                }`}
             >
-              <Link className="nav-link" to="/dashboard/calendar">
+              <Link className="nav-link" to="/dashboard/attendance">
                 {/* <i className="material-icons">content_paste</i> */}
                 <img src={Calendar} alt="Calendar" />
-                <p>Calendar</p>
+                <p>Attendance</p>
               </Link>
             </li>
             <li
-              className={`nav-item ${
-                queryName === "payment" ? "active" : null
-              }`}
+              className={`nav-item ${queryName === "allawance" ? "active" : null
+                }`}
             >
-              <Link className="nav-link" to="/dashboard/payment">
+              <Link className="nav-link" to="/dashboard/allawance">
                 {/* <i className="material-icons">library_books</i> */}
                 <img src={Charges} alt="Charges" />
-                <p>Payment</p>
+                <p>Allawance</p>
               </Link>
             </li>
             {/* <li className="nav-item ">
