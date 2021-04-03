@@ -1,0 +1,9 @@
+.nav-link{
+    display:  flex;
+}
+
+.nav-link > img{
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+}

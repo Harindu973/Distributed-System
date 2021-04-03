@@ -1,0 +1,16 @@
+.navbar{
+    background-color: white;
+}
+
+.container-fluid{
+    padding: 10px 60px;
+}
+
+.navbar-nav > li:nth-of-type(1){
+    margin-right: 150px;
+}
+
+.navbar-nav > li > img{
+    width: 40px;
+    height: 40px;
+}
