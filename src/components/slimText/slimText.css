@@ -1,0 +1,28 @@
+.dark-theme{
+        max-width: 380px;
+        height: 80px !important;
+    background-color: #29313a !important;
+    
+}
+.completed{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.completed>div>h4{
+    color: #fff;
+    margin: 0;
+    font-size: 16px;
+    font-weight:bold;
+    line-height: 20px;
+}
+
+.completed>div>h6{
+      color: #fff;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+}

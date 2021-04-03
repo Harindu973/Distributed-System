@@ -1,10 +1,16 @@
 import React, { Component } from "react";
-
-
+import Home from "../../assets/images/home.png";
+import Employee from "../../assets/images/employee.png";
+import Calendar from "../../assets/images/calendar.png";
+import Charges from "../../assets/images/money.png";
+import { Link } from "react-router-dom";
+import "./slidebar.css";
 //import "./newsletter.css";
 
-class Compo extends Component {
+class SideBar extends Component {
   render() {
+    // console.log("---query name---", this.props);
+    let queryName = this.props.queryName;
     return (
       <div
         className="sidebar"
@@ -24,33 +30,50 @@ class Compo extends Component {
         </div>
         <div className="sidebar-wrapper">
           <ul className="nav">
-              <li className="nav-item active  ">
-                <a className="nav-link" href="./dashboard.html">
-                  <i className="material-icons">dashboard</i>
-                  <p>Dashboard</p>
-                </a>
-              </li>
-            <li className="nav-item ">
-              <a className="nav-link" href="./user.html">
-                <i className="material-icons">person</i>
-                <p>
-                  <p id="text">Your Profile</p>
-                </p>
-              </a>
+            <li
+              className={`nav-item ${queryName === "main" ? "active" : null}`}
+            >
+              <Link className="nav-link" to="/dashboard/main">
+                {/* <i className="material-icons">dashboard</i> */}
+                <img src={Home} alt="Dashboard" />
+                <p>Dashboard</p>
+              </Link>
             </li>
-            <li className="nav-item ">
-              <a className="nav-link" href="./tables.html">
-                <i className="material-icons">content_paste</i>
-                <p>Table List</p>
-              </a>
+            <li
+              className={`nav-item ${
+                queryName === "profile" ? "active" : null
+              }`}
+            >
+              <Link className="nav-link" to="/dashboard/profile">
+                {/* <i className="material-icons">person</i> */}
+                <img src={Employee} alt="Employee" />
+
+                <p id="text">Profile</p>
+              </Link>
             </li>
-            <li className="nav-item ">
-              <a className="nav-link" href="./typography.html">
-                <i className="material-icons">library_books</i>
-                <p>Typography</p>
-              </a>
+            <li
+              className={`nav-item ${
+                queryName === "calendar" ? "active" : null
+              }`}
+            >
+              <Link className="nav-link" to="/dashboard/calendar">
+                {/* <i className="material-icons">content_paste</i> */}
+                <img src={Calendar} alt="Calendar" />
+                <p>Calendar</p>
+              </Link>
             </li>
-            <li className="nav-item ">
+            <li
+              className={`nav-item ${
+                queryName === "payment" ? "active" : null
+              }`}
+            >
+              <Link className="nav-link" to="/dashboard/payment">
+                {/* <i className="material-icons">library_books</i> */}
+                <img src={Charges} alt="Charges" />
+                <p>Payment</p>
+              </Link>
+            </li>
+            {/* <li className="nav-item ">
               <a className="nav-link" href="./icons.html">
                 <i className="material-icons">bubble_chart</i>
                 <p>Icons</p>
@@ -73,17 +96,17 @@ class Compo extends Component {
                 <i className="material-icons">language</i>
                 <p>RTL Support</p>
               </a>
+            </li> */}
+            <li className="nav-item active-pro ">
+              <a className="nav-link">
+                <i className="material-icons">assignment_return</i>
+                <p>Sign Out</p>
+              </a>
             </li>
-              <li className="nav-item active-pro ">
-                <a className="nav-link">
-                  <i className="material-icons">assignment_return</i>
-                  <p>Sign Out</p>
-                </a>
-              </li>
           </ul>
         </div>
       </div>
     );
   }
 }
-export default Compo;
+export default SideBar;
