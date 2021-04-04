@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Slidebar from "../../components/slidebar/slidebar";
 import Navbar from "../../components/navbar/navbar";
-import Profile from "../../components/profile";
 import Dashboard from "../../components/dashboard";
+import Attendance from "../../components/attendance";
+import Allawance from "../../components/allawance";
+import Employee from "../../components/employee";
 import { withRouter } from "react-router";
 
 import "./leave-main.css";
@@ -18,20 +20,34 @@ class Page extends Component {
   }
 
   selectRightComponent() {
-    if (this.props.match.params.name === "profile") {
-      this.setState({ query: "profile", component: <Profile /> });
+    if (this.props.match.params.name === "employee") {
+      this.setState({ query: "employee", component: <Employee /> });
     } else if (this.props.match.params.name === "main") {
       this.setState({
         query: this.props.match.params.name,
         component: <Dashboard />,
       });
-    } else {
+    }
+    else if (this.props.match.params.name === "attendance") {
+      this.setState({
+        query: this.props.match.params.name,
+        component: <Attendance />,
+      });
+    }
+    else if (this.props.match.params.name === "allawance") {
+      this.setState({
+        query: this.props.match.params.name,
+        component: <Allawance />,
+      });
+    }
+    else {
       this.setState({
         query: "main",
         component: <Dashboard />,
       });
       this.props?.history.push("/dashboard/main");
     }
+
     console.log("---------component did mount------------");
   }
 

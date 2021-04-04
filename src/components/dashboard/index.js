@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
+import Calendar from 'react-calendar';
 import {
   MDBContainer,
   MDBCol,
@@ -9,88 +10,97 @@ import {
 } from "mdbreact";
 import User from "../../assets/images/user.png";
 import "./dashboard.css";
-import TableDashboard from "../dashboardTable";
+import TableDashboard from "../employee/employeeTable";
 import SlimText from "../slimText";
+import Chart from "./chart"
 
 //import "./newsletter.css";
 
-class Dashboard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      firstBoxClick: false,
-      secondBoxClick: false,
-      thirdBoxClick: false,
-    };
-  }
+function Dashboard() {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     firstBoxClick: false,
+  //     secondBoxClick: false,
+  //     thirdBoxClick: false,
+  //   };
+  // }
 
-  render() {
-    return (
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol size={4}>
+
+  const [value, onChange] = useState(new Date());
+
+  return (
+    <MDBContainer>
+      <MDBRow>
+        <MDBCol size={6}>
+          <MDBRow>
+            <MDBCol size={4}>
+              <SlimText />
+              <MDBCard>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol size={4}>
+              <SlimText />
+              <MDBCard>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol size={4}>
+              <SlimText />
+              <MDBCard>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+          <MDBCard className={"full-height-card"}>
+            <MDBCardBody>
+              <h3>Attendance Summery</h3>
+              <div className="chart_contatiner">
+                <div><Chart /></div>
+              </div>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+        <MDBCol size={6}>
+          <MDBRow>
             <MDBCard className={"full-height-card"}>
               <MDBCardBody>
-                <img src={User} alt="user profile" />
+                <div>
+                  <Calendar
+                    onChange={onChange}
+                    value={value}
+                  />
+                </div>
               </MDBCardBody>
             </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBRow>
-              <MDBCol>
-                {this.state.firstBoxClick ? (
-                  <SlimText />
-                ) : (
-                  <MDBCard
-                    onClick={() => {
-                      this.setState({ firstBoxClick: true });
-                    }}
-                  >
-                    <MDBCardBody className="card-text"></MDBCardBody>
-                  </MDBCard>
-                )}
-              </MDBCol>
-              <MDBCol>
-                {this.state.secondBoxClick ? (
-                  <SlimText />
-                ) : (
-                  <MDBCard
-                    onClick={() => {
-                      this.setState({ secondBoxClick: true });
-                    }}
-                  >
-                    <MDBCardBody className="card-text"></MDBCardBody>
-                  </MDBCard>
-                )}
-              </MDBCol>
-              <MDBCol>
-                {this.state.thirdBoxClick ? (
-                  <SlimText />
-                ) : (
-                  <MDBCard
-                    onClick={() => {
-                      this.setState({ thirdBoxClick: true });
-                    }}
-                  >
-                    <MDBCardBody className="card-text"></MDBCardBody>
-                  </MDBCard>
-                )}
-              </MDBCol>
-            </MDBRow>
 
-            <div className={`table-box`}>
-              <div className="add-btn">
-                <MDBBtn className="rounded-btn" color="info">
-                  <i className="material-icons">add</i> Add New
-                </MDBBtn>
-              </div>
+          </MDBRow>
 
-              <TableDashboard />
-            </div>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    );
-  }
+          <MDBRow>
+            <MDBCol size={6}>
+
+              <MDBCard >
+                <MDBCardBody>
+                  <img src={User} alt="user profile" />
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol size={6}>
+
+              <MDBCard >
+                <MDBCardBody>
+                  <img src={User} alt="user profile" />
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+
+        </MDBCol>
+      </MDBRow>
+
+    </MDBContainer>
+  );
 }
+
 export default Dashboard;
+
+
+

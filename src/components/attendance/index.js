@@ -8,9 +8,9 @@ import {
   MDBBtn,
   MDBModal,
 } from "mdbreact";
-import "./profile.css";
+import "./attendance.css";
 
-class Profile extends Component {
+class Attendance extends Component {
   constructor() {
     super();
     this.state = {
@@ -95,4 +95,4 @@ class Profile extends Component {
     );
   }
 }
-export default Profile;
+export default Attendance;
