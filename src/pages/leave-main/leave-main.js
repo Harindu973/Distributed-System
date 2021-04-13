@@ -10,6 +10,8 @@ import Payroll from "../../components/payroll";
 import { withRouter } from "react-router";
 
 
+import Employeemain from "../../components/employeemain";
+import Login from "../../components/login";
 import "./leave-main.css";
 
 class Page extends Component {
@@ -36,6 +38,19 @@ class Page extends Component {
         query: this.props.match.params.name,
         component: <Attendance />,
       });
+    }
+    else if (this.props.match.params.name === "employeemain") {
+      this.setState({
+        query: this.props.match.params.name,
+        component: <Employeemain />
+      });
+    }
+    else if (this.props.match.params.name === "login") {
+      this.setState({
+        query: this.props.match.params.name,
+        component: <Login />
+      });
+    
     }
     else if (this.props.match.params.name === "allawance") {
       this.setState({
