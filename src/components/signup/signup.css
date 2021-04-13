@@ -1,0 +1,84 @@
+body {
+    background-color:#1b1b1b;
+    background-size: cover;
+  }
+  #root {
+    height: auto;
+  }
+  
+  #main-outer-div {
+    position: relative;
+    background-color:rgba(233, 211, 224, 0.432);
+    width: 10%;
+    max-width: 100px;
+    margin: auto;
+    margin-top: 7%;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .container {
+      
+
+  }
+  
+  #title-div {
+    margin: 0 auto;
+    text-align: center;
+    
+  }
+  
+   .signup-form-input {
+    box-sizing: border-box;
+    width: 50%;
+    border-radius: 10px;
+    height: 40px;
+    margin: 10px 0 10px;
+    padding: 15px;
+    border: 1px;
+    background-color:#d3c6d2;
+  }
+  
+  .signup-form-input:focus {
+    outline: 0;
+    
+  }
+  
+  #outer-signup-form-div {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .signup-form-input[type="submit"] {
+    background-color: #ff007c;
+    border-width: 0px;
+    margin-top: 15px;
+    padding: 0px;
+    color:rgb(235, 240, 245);
+  } 
+  
+  .loading {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .title {
+    font-size: 20px;
+    color: #161516;
+    font-weight: bold;
+    
+  }
+  
+  .alert {
+    font-size: 14px;
+    text-align: center;
+    color: red;
+    background-color: rgba(233, 211, 224, 0.432);
+    border: none;
+  }
+  
+  @media (max-width: 300px) {
+    #main-outer-div {
+      width: 50%;
+      min-width: 0px;
+    }
+  }
