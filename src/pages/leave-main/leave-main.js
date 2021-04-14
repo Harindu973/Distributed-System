@@ -5,7 +5,11 @@ import Dashboard from "../../components/dashboard";
 import Attendance from "../../components/attendance";
 import Allawance from "../../components/allawance";
 import Employee from "../../components/employee";
+import Signup from "../../components/signup";
+import Payroll from "../../components/payroll";
 import { withRouter } from "react-router";
+
+
 import Employeemain from "../../components/employeemain";
 import Login from "../../components/login";
 import "./leave-main.css";
@@ -52,6 +56,18 @@ class Page extends Component {
       this.setState({
         query: this.props.match.params.name,
         component: <Allawance />,
+      });
+    }
+    else if (this.props.match.params.name === "signup") {
+      this.setState({
+        query: this.props.match.params.name,
+        component: <Signup/>,
+      });
+    }
+    else if (this.props.match.params.name === "payroll") {
+      this.setState({
+        query: this.props.match.params.name,
+        component: <Payroll />,
       });
     }
     else {
