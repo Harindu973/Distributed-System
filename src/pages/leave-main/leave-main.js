@@ -6,6 +6,7 @@ import Attendance from "../../components/attendance";
 import Allawance from "../../components/allawance";
 import Employee from "../../components/employee";
 import Signup from "../../components/signup";
+import Leave from "../../pages/leave-pending/leavePending";
 import Payroll from "../../components/payroll";
 import { withRouter } from "react-router";
 
@@ -50,7 +51,6 @@ class Page extends Component {
         query: this.props.match.params.name,
         component: <Login />
       });
-    
     }
     else if (this.props.match.params.name === "allawance") {
       this.setState({
@@ -68,6 +68,12 @@ class Page extends Component {
       this.setState({
         query: this.props.match.params.name,
         component: <Payroll />,
+      });
+    }
+    else if (this.props.match.params.name === "leave") {
+      this.setState({
+        query: this.props.match.params.name,
+        component: <Leave />
       });
     }
     else {
@@ -100,7 +106,6 @@ class Page extends Component {
         <Slidebar queryName={state.query} />
         <div className="main-panel">
           <Navbar />
-
           <div className="main-container-wrapper">{state.component}</div>
         </div>
       </div>

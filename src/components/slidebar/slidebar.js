@@ -70,6 +70,16 @@ class SideBar extends Component {
                 <p>Allawance</p>
               </Link>
             </li>
+            <li
+              className={`nav-item ${queryName === "leave-pending" ? "active" : null
+                }`}
+            >
+              <Link className="nav-link" to="/dashboard/leavePending">
+                {/* <i className="material-icons">library_books</i> */}
+                <img src={Charges} alt="Charges" />
+                <p>Leave</p>
+              </Link>
+            </li>
             {/* <li className="nav-item ">
               <a className="nav-link" href="./icons.html">
                 <i className="material-icons">bubble_chart</i>
