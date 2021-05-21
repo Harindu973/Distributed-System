@@ -8,13 +8,13 @@ import {
   MDBBtn,
 } from "mdbreact";
 import User from "../../assets/images/user.png";
-import "./payroll.css";
-import TableDashboard from "./payrollTable";
-import SlimText from "../slimText";
+import "./allawance.css";
+import TableDashboard from "./allawanceTable";
+//import SlimText from "../../components/slimText/index";
 
 //import "./newsletter.css";
 
-class Payroll extends Component {
+class LeavePending extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,12 +29,14 @@ class Payroll extends Component {
       <MDBContainer>
         <MDBRow>
           <MDBCol>
+
             <div className={`table-box`}>
               <div className="add-btn">
                 <MDBBtn className="rounded-btn" color="info">
                   <i className="material-icons">add</i> Add New
                 </MDBBtn>
               </div>
+
               <TableDashboard />
             </div>
           </MDBCol>
@@ -43,4 +45,4 @@ class Payroll extends Component {
     );
   }
 }
-export default Payroll;
+export default LeavePending;
