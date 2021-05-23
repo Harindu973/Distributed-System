@@ -1,0 +1,54 @@
+.two-boxes{
+    height: 550px;
+}
+
+.two-boxes > .card{
+    height: 100%;
+}
+
+.profile-container{position: relative;}
+
+.backward{
+    height: 70px;
+}
+
+
+.btns-down{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.btn-position{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.btn-position >button{
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #ff007c !important;
+}
+
+.btn-position >button:nth-of-type(1){
+ margin-right: 20px;   
+}
+
+.modal-content{
+    background-color: rgba(152, 252, 255,0.7);
+      max-height: 400px;
+    min-height: 350px;
+    padding: 1rem 2rem;
+}
+
+.modal-dialog{
+    max-width: 800px;
+    width: 800px;   
+    /* left: 18% !important; */
+}
+
+.modal-content>.btns-down{
+    height: 100vh;
+} 

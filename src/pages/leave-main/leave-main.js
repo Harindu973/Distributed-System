@@ -6,7 +6,7 @@ import Attendance from "../../components/attendance";
 import Allawance from "../../components/allawance";
 import Employee from "../../components/employee";
 import Signup from "../../components/signup";
-import Leave from "../../pages/leave-pending/leavePending";
+import Leave from "../../components/leave";
 import Payroll from "../../components/payroll";
 import { withRouter } from "react-router";
 

@@ -38,12 +38,7 @@ export default function LoginComp() {
             setError("User Name or password empty ");
         } else {
             try {
-
-
-
-                
-                console.log("loging  sjd  "+email+" " +password);
-                window.confirm("zzzzzzzzzzzzzzzzzzzzzzzzz<br>etext "+email+" " +password);
+              
                 await firebase.auth().signInWithEmailAndPassword(email, password)
                 .then((userCredential) => {
                   // Signed in

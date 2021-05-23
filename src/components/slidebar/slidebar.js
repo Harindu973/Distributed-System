@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Home from "../../assets/images/home.png";
 import Employee from "../../assets/images/employee.png";
 import Calendar from "../../assets/images/calendar.png";
+import Left from "../../assets/images/left.png";
 import Charges from "../../assets/images/money.png";
 import { Link } from "react-router-dom";
 import "./slidebar.css";
@@ -71,12 +72,12 @@ class SideBar extends Component {
               </Link>
             </li>
             <li
-              className={`nav-item ${queryName === "leave-pending" ? "active" : null
+              className={`nav-item ${queryName === "leave" ? "active" : null
                 }`}
             >
-              <Link className="nav-link" to="/dashboard/leavePending">
+              <Link className="nav-link" to="/dashboard/leave">
                 {/* <i className="material-icons">library_books</i> */}
-                <img src={Charges} alt="Charges" />
+                <i class="material-icons"> logout</i>
                 <p>Leave</p>
               </Link>
             </li>
