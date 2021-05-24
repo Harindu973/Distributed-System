@@ -7,6 +7,7 @@ class Compo extends Component {
     render(){
         return(
             <div>
+                
                 <Row />
 
             </div>
