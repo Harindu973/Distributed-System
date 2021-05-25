@@ -9,9 +9,9 @@ import "./table.css";
 
   const[items,setitems] = useState([]);
 
-    useEffect(() => {
+    useEffect(async () => {
 
-        axios.get('https://ds-backend-focus.herokuapp.com/api/leave/read.php')
+        await axios.get('https://ds-backend-focus.herokuapp.com/api/leave/read.php')
 
         .then(res=>{
             console.log(res.data);
@@ -59,6 +59,7 @@ import "./table.css";
             <th>Date</th>
             <th>Reason</th>
             <th>Time from</th>
+            <th></th>
           </tr>
         </MDBTableHead>
         <MDBTableBody>
