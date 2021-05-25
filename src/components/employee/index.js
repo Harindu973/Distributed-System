@@ -28,13 +28,6 @@ class Employee extends Component {
     return (
       <MDBContainer>
         <MDBRow>
-          <MDBCol size={4}>
-            <MDBCard className={"full-height-card"}>
-              <MDBCardBody>
-                <img src={User} alt="user profile" />
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
           <MDBCol>
             <MDBRow>
               <MDBCol>
