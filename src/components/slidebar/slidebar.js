@@ -108,7 +108,7 @@ class SideBar extends Component {
             <li className="nav-item active-pro ">
               <Link className="nav-link" to="/">
                 <i className="material-icons">assignment_return</i>
-                <p>Sign Out</p>
+                <p>Sign Out </p>
               </Link>
             </li>
           </ul>
