@@ -106,10 +106,10 @@ class SideBar extends Component {
               </a>
             </li> */}
             <li className="nav-item active-pro ">
-              <a className="nav-link">
+              <Link className="nav-link" to="/">
                 <i className="material-icons">assignment_return</i>
                 <p>Sign Out</p>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
