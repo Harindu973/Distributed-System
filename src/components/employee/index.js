@@ -6,6 +6,7 @@ import {
   MDBCard,
   MDBCardBody,
   MDBBtn,
+  MDBModal,
 } from "mdbreact";
 import User from "../../assets/images/user.png";
 import "./employee.css";
@@ -73,7 +74,11 @@ class Employee extends Component {
 
             <div className={`table-box`}>
               <div className="add-btn">
-                <MDBBtn className="rounded-btn" color="info">
+                <MDBBtn className="rounded-btn" color="info" onClick={() => {
+                          this.setState({
+                            modalVisible: true,
+                          });
+                        }}>
                   <i className="material-icons">add</i> Add New
                 </MDBBtn>
               </div>
@@ -82,6 +87,50 @@ class Employee extends Component {
             </div>
           </MDBCol>
         </MDBRow>
+        <MDBModal
+          isOpen={this.state.modalVisible}
+          backdrop={false}
+          toggle={() => {
+            this.setState({ modalVisible: !this.state.modalVisible });
+          }}
+          centered
+          className="modal-popup"
+        >
+          <div className="btns-down">
+            <div className="btn-position">
+            <form>
+           <label>
+           Employee ID: <input type="text" name="name" />
+           Name: <input type="text" name="name" />
+           NIC: <input type="text" name="name" />
+           DOB: <input type="text" name="name" />
+           Designation: <input type="text" name="name" />
+           Gender:<input type="radio" value="Male" name="gender" /> Male
+        <input type="radio" value="Female" name="gender" /> Female
+        <input type="radio" value="Other" name="gender" /> Other
+           
+          </label>
+  
+        </form>
+              <MDBBtn
+                color="primary"
+                onClick={() => {
+                  this.setState({
+                    modalVisible: !this.state.modalVisible,
+                  });
+                }}
+              ></MDBBtn>
+              <MDBBtn
+                color="primary"
+              // onClick={() => {
+              //   this.setState({
+              //     modalVisible: !this.state.modalVisible,
+              //   });
+              // }}
+              ></MDBBtn>
+            </div>
+          </div>
+        </MDBModal>
       </MDBContainer>
     );
   }
