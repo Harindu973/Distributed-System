@@ -37,8 +37,8 @@
 }
 
 .modal-content{
-    background-color: rgba(152, 252, 255,0.7);
-      max-height: 400px;
+    background-color: rgba(10, 52, 53, 0.83);
+    max-height: 700px;
     min-height: 350px;
     padding: 1rem 2rem;
 }
@@ -50,5 +50,16 @@
 }
 
 .modal-content>.btns-down{
-    height: 100vh;
+    height: 1000vh;
 } 
+
+.employee-form{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+

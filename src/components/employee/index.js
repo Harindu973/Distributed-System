@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import {
   MDBContainer,
   MDBCol,
@@ -12,127 +12,193 @@ import User from "../../assets/images/user.png";
 import "./employee.css";
 import TableDashboard from "./employeeTable";
 import SlimText from "../slimText";
+import axios from "axios";
 
 //import "./newsletter.css";
+function Employee() {
 
-class Employee extends Component {
-  constructor() {
-    super();
-    this.state = {
-      firstBoxClick: false,
-      secondBoxClick: false,
-      thirdBoxClick: false,
+  const [name, setName] = useState('');
+  const [nic, setNic] = useState('');
+  const [dob, setDob] = useState("");
+  const [designation, setDesignation] = useState("");
+  const [gender, setGender] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const modalClose = () => {
+    setModalVisible(false);
+  };
+
+  const addEmployee = async () => {
+    var data = {
+      name,
+      dob,
+      nic,
+      designation,
+      gender,
+      email,
+      phone,
     };
-  }
+    console.log('done');
+    try {
+      await axios.post('http://api.focusoeuvre.tech/erp-focus/api/employee/create.php', data);
+      console.log('done');
+    } catch (error) {
+      console.log(error);
 
-  render() {
-    return (
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol>
-            <MDBRow>
-              <MDBCol>
-                {this.state.firstBoxClick ? (
-                  <SlimText />
-                ) : (
-                  <MDBCard
-                    onClick={() => {
-                      this.setState({ firstBoxClick: true });
-                    }}
-                  >
-                    <MDBCardBody className="card-text"></MDBCardBody>
-                  </MDBCard>
-                )}
-              </MDBCol>
-              <MDBCol>
-                {this.state.secondBoxClick ? (
-                  <SlimText />
-                ) : (
-                  <MDBCard
-                    onClick={() => {
-                      this.setState({ secondBoxClick: true });
-                    }}
-                  >
-                    <MDBCardBody className="card-text"></MDBCardBody>
-                  </MDBCard>
-                )}
-              </MDBCol>
-              <MDBCol>
-                {this.state.thirdBoxClick ? (
-                  <SlimText />
-                ) : (
-                  <MDBCard
-                    onClick={() => {
-                      this.setState({ thirdBoxClick: true });
-                    }}
-                  >
-                    <MDBCardBody className="card-text"></MDBCardBody>
-                  </MDBCard>
-                )}
-              </MDBCol>
-            </MDBRow>
+    }
+  };
 
-            <div className={`table-box`}>
-              <div className="add-btn">
-                <MDBBtn className="rounded-btn" color="info" onClick={() => {
-                          this.setState({
-                            modalVisible: true,
-                          });
-                        }}>
-                  <i className="material-icons">add</i> Add New
+
+
+
+  return (
+    <MDBContainer>
+      <MDBRow>
+        <MDBCol>
+          <MDBRow>
+            <MDBCol>
+              <MDBCard>
+                <MDBCardBody className="card-text">Total</MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol>
+              <MDBCard>
+                <MDBCardBody className="card-text">Total</MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol>
+              <MDBCard>
+                <MDBCardBody className="card-text">Total</MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+
+          <div className={`table-box`}>
+            <div className="add-btn">
+              <MDBBtn className="rounded-btn" color="info" onClick={() => {
+
+                setModalVisible(true)
+                  ;
+              }}>
+                <i className="material-icons">add</i> Add New
                 </MDBBtn>
-              </div>
+            </div>
 
-              <TableDashboard />
-            </div>
-          </MDBCol>
-        </MDBRow>
-        <MDBModal
-          isOpen={this.state.modalVisible}
-          backdrop={false}
-          toggle={() => {
-            this.setState({ modalVisible: !this.state.modalVisible });
-          }}
-          centered
-          className="modal-popup"
-        >
-          <div className="btns-down">
-            <div className="btn-position">
-            <form>
-           <label>
-           Employee ID: <input type="text" name="name" />
-           Name: <input type="text" name="name" />
-           NIC: <input type="text" name="name" />
-           DOB: <input type="text" name="name" />
-           Designation: <input type="text" name="name" />
-           Gender:<input type="radio" value="Male" name="gender" /> Male
-        <input type="radio" value="Female" name="gender" /> Female
-        <input type="radio" value="Other" name="gender" /> Other
-           
-          </label>
-  
-        </form>
-              <MDBBtn
-                color="primary"
-                onClick={() => {
-                  this.setState({
-                    modalVisible: !this.state.modalVisible,
-                  });
-                }}
-              ></MDBBtn>
-              <MDBBtn
-                color="primary"
-              // onClick={() => {
-              //   this.setState({
-              //     modalVisible: !this.state.modalVisible,
-              //   });
-              // }}
-              ></MDBBtn>
-            </div>
+            <TableDashboard />
           </div>
-        </MDBModal>
-      </MDBContainer>
-    );
-  }
+        </MDBCol>
+      </MDBRow>
+      <MDBModal
+        isOpen={modalVisible}
+        backdrop={false}
+        // toggle={() => {
+        //   this.setState({ modalVisible: !this.state.modalVisible });
+        // }}
+        centered
+        className="modal-popup"
+      >
+        <div className="btns-down">
+          <div className="btn-position">
+            <form>
+
+              <MDBRow>
+                <MDBCol>
+                  <label>
+                    Name:
+                      <input type="text"
+                      onChange={setName}
+                    // value={name}
+                    />
+                  </label>
+                </MDBCol>
+                <MDBCol>
+                  <label>
+                    NIC_NO:
+                    <input type="text"
+                      onChange={setNic}
+                    // value={nic}
+                    />
+                  </label>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol>
+                  <label>
+                    Date Of Birth:
+                      <input type="text"
+                      onChange={setDob}
+                    // value={dob}
+                    />
+                  </label>
+                </MDBCol>
+                <MDBCol>
+                  <label>
+                    GENDER:
+                    <input type="text"
+                      onChange={setGender}
+                    // value={gender}
+                    />
+                  </label>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol>
+                  <label>
+                    EMAIL Adreess:
+                      <input type="text"
+                      onChange={setEmail}
+                    // value={email}
+                    />
+                  </label>
+                </MDBCol>
+                <MDBCol>
+                  <label>
+                    PHONE:
+                    <input type="text"
+                      onChange={setPhone}
+                    // value={phone}
+                    />
+                  </label>
+                </MDBCol>
+
+              </MDBRow>
+              <MDBRow>
+                <MDBCol>
+                  <label>
+                    DESIGNATION:
+                      <input type="text"
+                      onChange={setDesignation}
+                    // value={designation}
+                    />
+                  </label>
+                </MDBCol>
+                <MDBCol>
+
+                </MDBCol>
+
+              </MDBRow>
+              <input type="submit" value="Submit" onClick={addEmployee} />
+
+              <MDBBtn color="primary"
+                onClick={modalClose}
+              >Cancel</MDBBtn>
+
+
+
+
+
+
+
+
+            </form>
+
+          </div>
+        </div>
+      </MDBModal>
+    </MDBContainer>
+  );
+
 }
 export default Employee;

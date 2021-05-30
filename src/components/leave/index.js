@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
   MDBContainer,
   MDBCol,
@@ -15,17 +15,16 @@ import SlimText from "../slimText";
 
 //import "./newsletter.css";
 
-class Allawance extends Component {
-  constructor() {
-    super();
-    this.state = {
-      firstBoxClick: false,
-      secondBoxClick: false,
-      thirdBoxClick: false,
-    };
-  }
+function Allawance()  {
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+  const [reason, setReason] = useState("");
 
-  render() {
+  const [modalVisible, setModalVisible] = useState(false);
+  const modalClose = () => {
+    setModalVisible(false);
+  };
+
     return (
       <MDBContainer>
         <MDBRow>
@@ -33,11 +32,9 @@ class Allawance extends Component {
 
             <div className={`table-box`}>
               <div className="add-btn">
-                <MDBBtn className="rounded-btn" color="info"onClick={() => {
-                          this.setState({
-                            modalVisible: true,
-                          });
-                        }}>
+                <MDBBtn className="rounded-btn" color="info"     onClick={() => {
+                        setModalVisible(true)
+                      }}>
                   <i className="material-icons">add</i> Add New
                 </MDBBtn>
               </div>
@@ -47,46 +44,80 @@ class Allawance extends Component {
           </MDBCol>
         </MDBRow>
         <MDBModal
-          isOpen={this.state.modalVisible}
+          isOpen={modalVisible}
           backdrop={false}
-          toggle={() => {
-            this.setState({ modalVisible: !this.state.modalVisible });
-          }}
+        
           centered
           className="modal-popup"
         >
-          <div className="btns-down">
+          <div>
             <div className="btn-position">
+         
             <form>
-           <label>
-           Employee ID: <input type="text" name="name" />
-           Date: <input type="text" name="name" />
-           Reason: <input type="text" name="name" />
-           TIme From: <input type="text" name="name" />
-          </label>
+
+
+
+NAME	NIC
+DOB	GENDER
+DESIGNATION PHONE
+EMAIL
   
-        </form>
-              <MDBBtn
-                color="primary"
-                onClick={() => {
-                  this.setState({
-                    modalVisible: !this.state.modalVisible,
-                  });
-                }}
-              ></MDBBtn>
-              <MDBBtn
-                color="primary"
-              // onClick={() => {
-              //   this.setState({
-              //     modalVisible: !this.state.modalVisible,
-              //   });
-              // }}
-              ></MDBBtn>
+<MDBRow>
+  <MDBCol>
+    <label>
+    Leave Date:
+      <input
+       type="text"
+       onChange={setDate}
+       
+       />
+    </label>
+  </MDBCol>
+  <MDBCol>
+    <label>
+    Reason:
+    <input type="text" 
+     onChange={setReason}
+    />
+    </label>
+  </MDBCol>
+  <MDBCol>
+    <label>
+    Time from:
+      <input type="text" 
+       onChange={setTime}
+      />
+    </label>
+  </MDBCol>
+</MDBRow>
+<MDBRow>
+  
+</MDBRow>
+
+
+<input type="submit" value="Submit" />
+
+<MDBBtn
+ 
+color="primary"
+onClick={() => {
+  setModalVisible(false)
+}}
+></MDBBtn>
+
+
+
+
+
+
+
+
+</form>
             </div>
           </div>
         </MDBModal>
       </MDBContainer>
     );
-  }
+  
 }
 export default Allawance;
