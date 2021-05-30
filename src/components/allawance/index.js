@@ -8,14 +8,41 @@ import {
   MDBBtn,
   MDBModal,
 } from "mdbreact";
-
+import axios from "axios";
 import "./allawance.css";
 import TableDashboard from "./allawanceTable";
 
 
 
 function Allawance() {
+  const [empId, setEmpId] = useState("");
+  const [amount, setAmount] = useState("");
+  const [paidDate, setPaidDate] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
+
+
+
+
+  const addAllawance = async (e) => {
+    e.preventDefault();
+    var data = {
+      empId,
+      amount,
+      paidDate,
+    };
+    console.log(data);
+    try {
+      await axios.post('http://api.focusoeuvre.tech/erp-focus/api/salary/create.php', data);
+      console.log('done');
+    } catch (error) {
+      console.log(error);
+
+    }
+  };
+
+
+
+
 
   {
     return (
@@ -46,18 +73,26 @@ function Allawance() {
         >
           <div >
             <div className="btn-position">
-              <form>
+              <form onSubmit={(e) => addAllawance(e)}>
                 <MDBRow>
                   <MDBCol>
                     <label>
                       EMPLOYEE ID:
-      <input type="text" />
+      <input type="text"
+                        onChange={(e) => {
+                          e.target.value && setEmpId(e.target.value);
+                        }}
+                      />
                     </label>
                   </MDBCol>
                   <MDBCol>
                     <label>
                       AMOUNT:
-    <input type="text" />
+    <input type="text"
+                        onChange={(e) => {
+                          e.target.value && setAmount(e.target.value);
+                        }}
+                      />
                     </label>
                   </MDBCol>
                 </MDBRow>
@@ -66,7 +101,11 @@ function Allawance() {
                   <MDBCol>
                     <label>
                       PAID DATE:
-      <input type="text" />
+      <input type="text"
+                        onChange={(e) => {
+                          e.target.value && setPaidDate(e.target.value);
+                        }}
+                      />
                     </label>
                   </MDBCol>
                   <MDBCol>

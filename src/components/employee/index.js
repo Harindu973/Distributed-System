@@ -24,15 +24,20 @@ function Employee() {
   const [gender, setGender] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [empId, setEmpId] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
   const modalClose = () => {
     setModalVisible(false);
   };
 
-  const addEmployee = async () => {
+
+
+  const addEmployee = async (e) => {
+    e.preventDefault();
     var data = {
       name,
+      empId,
       dob,
       nic,
       designation,
@@ -40,9 +45,9 @@ function Employee() {
       email,
       phone,
     };
-    console.log('done');
+    console.log(data);
     try {
-      await axios.post('http://api.focusoeuvre.tech/erp-focus/api/employee/create.php', data);
+      await axios.post('https://ds-backend-focus.herokuapp.com/api/employee/create.php', data);
       console.log('done');
     } catch (error) {
       console.log(error);
@@ -101,15 +106,16 @@ function Employee() {
       >
         <div className="btns-down">
           <div className="btn-position">
-            <form>
+            <form onSubmit={(e) => addEmployee(e)}>
 
               <MDBRow>
                 <MDBCol>
                   <label>
                     Name:
                       <input type="text"
-                      onChange={setName}
-                    // value={name}
+                      onChange={(e) => {
+                        e.target.value && setName(e.target.value);
+                      }}
                     />
                   </label>
                 </MDBCol>
@@ -117,8 +123,9 @@ function Employee() {
                   <label>
                     NIC_NO:
                     <input type="text"
-                      onChange={setNic}
-                    // value={nic}
+                      onChange={(e) => {
+                        e.target.value && setNic(e.target.value);
+                      }}
                     />
                   </label>
                 </MDBCol>
@@ -128,8 +135,9 @@ function Employee() {
                   <label>
                     Date Of Birth:
                       <input type="text"
-                      onChange={setDob}
-                    // value={dob}
+                      onChange={(e) => {
+                        e.target.value && setDob(e.target.value);
+                      }}
                     />
                   </label>
                 </MDBCol>
@@ -137,8 +145,9 @@ function Employee() {
                   <label>
                     GENDER:
                     <input type="text"
-                      onChange={setGender}
-                    // value={gender}
+                      onChange={(e) => {
+                        e.target.value && setGender(e.target.value);
+                      }}
                     />
                   </label>
                 </MDBCol>
@@ -148,8 +157,9 @@ function Employee() {
                   <label>
                     EMAIL Adreess:
                       <input type="text"
-                      onChange={setEmail}
-                    // value={email}
+                      onChange={(e) => {
+                        e.target.value && setEmail(e.target.value);
+                      }}
                     />
                   </label>
                 </MDBCol>
@@ -157,7 +167,9 @@ function Employee() {
                   <label>
                     PHONE:
                     <input type="text"
-                      onChange={setPhone}
+                      onChange={(e) => {
+                        e.target.value && setPhone(e.target.value);
+                      }}
                     // value={phone}
                     />
                   </label>
@@ -169,17 +181,30 @@ function Employee() {
                   <label>
                     DESIGNATION:
                       <input type="text"
-                      onChange={setDesignation}
+                      onChange={(e) => {
+                        e.target.value && setDesignation(e.target.value);
+                      }}
                     // value={designation}
                     />
                   </label>
+
                 </MDBCol>
                 <MDBCol>
+                  <label>
+                    Employee ID:
+                      <input type="text"
+                      onChange={(e) => {
+                        e.target.value && setEmpId(e.target.value);
+                      }}
+                    // value={designation}
+                    />
+                  </label>
 
                 </MDBCol>
 
+
               </MDBRow>
-              <input type="submit" value="Submit" onClick={addEmployee} />
+              <input type="submit" value="Submit" />
 
               <MDBBtn color="primary"
                 onClick={modalClose}
