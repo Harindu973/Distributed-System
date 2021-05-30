@@ -11,7 +11,7 @@ import "./table.css";
 
     useEffect(async () => {
 
-        await axios.get('https://ds-backend-focus.herokuapp.com/api/leave/read.php')
+        await axios.get('http://api.focusoeuvre.tech/erp-focus/api/leave/read.php')
 
         .then(res=>{
             console.log(res.data);
