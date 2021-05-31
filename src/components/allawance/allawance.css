@@ -36,9 +36,9 @@
  margin-right: 20px;   
 }
 
-.modal-content{
-    background-color: rgba(152, 252, 255,0.7);
-      max-height: 400px;
+.modal-content-allawance{
+    background-color: rgba(10, 52, 53, 0.83);
+    max-height: 400px;
     min-height: 350px;
     padding: 1rem 2rem;
 }

@@ -36,12 +36,12 @@
  margin-right: 20px;   
 }
 
-.modal-content{
-    background-color: rgba(152, 252, 255,0.7);
+/* .modal-content{
+    background-color: rgba(10, 52, 53, 0.83);
       max-height: 400px;
     min-height: 350px;
     padding: 1rem 2rem;
-}
+} */
 
 .modal-dialog{
     max-width: 800px;

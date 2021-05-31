@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
   MDBContainer,
   MDBCol,
@@ -8,85 +8,132 @@ import {
   MDBBtn,
   MDBModal,
 } from "mdbreact";
-import User from "../../assets/images/user.png";
 import "./leave.css";
 import TableDashboard from "./leaveTable";
-import SlimText from "../slimText";
+import axios from "axios";
 
-//import "./newsletter.css";
 
-class Allawance extends Component {
-  constructor() {
-    super();
-    this.state = {
-      firstBoxClick: false,
-      secondBoxClick: false,
-      thirdBoxClick: false,
+function Allawance() {
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+  const [reason, setReason] = useState("");
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const modalClose = () => {
+    setModalVisible(false);
+  };
+
+
+  const addLeave = async (e) => {
+    e.preventDefault();
+    var data = {
+      date,
+      time,
+      reason,
     };
-  }
+    console.log(data);
+    try {
+      await axios.post('https://ds-backend-focus.herokuapp.com/api/employee/create.php', data);
+      console.log('done');
+    } catch (error) {
+      console.log(error);
 
-  render() {
-    return (
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol>
+    }
+  };
 
-            <div className={`table-box`}>
-              <div className="add-btn">
-                <MDBBtn className="rounded-btn" color="info"onClick={() => {
-                          this.setState({
-                            modalVisible: true,
-                          });
-                        }}>
-                  <i className="material-icons">add</i> Add New
+
+
+
+  return (
+    <MDBContainer>
+      <MDBRow>
+        <MDBCol>
+
+          <div className={`table-box`}>
+            <div className="add-btn">
+              <MDBBtn className="rounded-btn" color="info" onClick={() => {
+                setModalVisible(true)
+              }}>
+                <i className="material-icons">add</i> Add New
                 </MDBBtn>
-              </div>
-
-              <TableDashboard />
             </div>
-          </MDBCol>
-        </MDBRow>
-        <MDBModal
-          isOpen={this.state.modalVisible}
-          backdrop={false}
-          toggle={() => {
-            this.setState({ modalVisible: !this.state.modalVisible });
-          }}
-          centered
-          className="modal-popup"
-        >
-          <div className="btns-down">
-            <div className="btn-position">
-            <form>
-           <label>
-           Employee ID: <input type="text" name="name" />
-           Date: <input type="text" name="name" />
-           Reason: <input type="text" name="name" />
-           TIme From: <input type="text" name="name" />
-          </label>
-  
-        </form>
+
+            <TableDashboard />
+          </div>
+        </MDBCol>
+      </MDBRow>
+      <MDBModal
+        isOpen={modalVisible}
+        backdrop={false}
+
+        centered
+        className="modal-popup"
+      >
+        <div>
+          <div className="btn-position">
+
+            <form onSubmit={(e) => addLeave(e)}>
+              <MDBRow>
+                <MDBCol>
+                  <label>
+                    Leave Date:
+      <input
+                      type="text"
+                      onChange={(e) => {
+                        e.target.value && setDate(e.target.value);
+                      }}
+                    />
+                  </label>
+                </MDBCol>
+                <MDBCol>
+                  <label>
+                    Reason:
+    <input type="text"
+                      onChange={(e) => {
+                        e.target.value && setReason(e.target.value);
+                      }}
+                    />
+                  </label>
+                </MDBCol>
+                <MDBCol>
+                  <label>
+                    Time from:
+      <input type="text"
+                      onChange={(e) => {
+                        e.target.value && setTime(e.target.value);
+                      }}
+                    />
+                  </label>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+
+              </MDBRow>
+
+
+              <input type="submit" value="Submit" />
+
               <MDBBtn
+
                 color="primary"
                 onClick={() => {
-                  this.setState({
-                    modalVisible: !this.state.modalVisible,
-                  });
+                  setModalVisible(false)
                 }}
               ></MDBBtn>
-              <MDBBtn
-                color="primary"
-              // onClick={() => {
-              //   this.setState({
-              //     modalVisible: !this.state.modalVisible,
-              //   });
-              // }}
-              ></MDBBtn>
-            </div>
+
+
+
+
+
+
+
+
+            </form>
           </div>
-        </MDBModal>
-      </MDBContainer>
-    );
-  }
+        </div>
+      </MDBModal>
+    </MDBContainer>
+  );
+
 }
 export default Allawance;
