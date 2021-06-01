@@ -35,6 +35,7 @@ function Allawance() {
     try {
       await axios.post('https://ds-backend-focus.herokuapp.com/api/employee/create.php', data);
       console.log('done');
+      setModalVisible(false);
     } catch (error) {
       console.log(error);
 
