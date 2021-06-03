@@ -8,6 +8,7 @@ import Employee from "../../components/employee";
 import Signup from "../../components/signup";
 import Leave from "../../components/leave";
 import Payroll from "../../components/payroll";
+import Notice from "../../components/notice";
 import { withRouter } from "react-router";
 
 
@@ -61,7 +62,7 @@ class Page extends Component {
     else if (this.props.match.params.name === "signup") {
       this.setState({
         query: this.props.match.params.name,
-        component: <Signup/>,
+        component: <Signup />,
       });
     }
     else if (this.props.match.params.name === "payroll") {
@@ -74,6 +75,12 @@ class Page extends Component {
       this.setState({
         query: this.props.match.params.name,
         component: <Leave />
+      });
+    }
+    else if (this.props.match.params.name === "notice") {
+      this.setState({
+        query: this.props.match.params.name,
+        component: <Notice />
       });
     }
     else {

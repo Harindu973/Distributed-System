@@ -77,8 +77,18 @@ class SideBar extends Component {
             >
               <Link className="nav-link" to="/dashboard/leave">
                 {/* <i className="material-icons">library_books</i> */}
-                <i class="material-icons"> logout</i>
+                <i class="material-icons"> local_cafe</i>
                 <p>Leave</p>
+              </Link>
+            </li>
+            <li
+              className={`nav-item ${queryName === "notice" ? "active" : null
+                }`}
+            >
+              <Link className="nav-link" to="/dashboard/notice">
+                {/* <i className="material-icons">library_books</i> */}
+                <i class="material-icons"> insert_comment</i>
+                <p>Notice</p>
               </Link>
             </li>
             {/* <li className="nav-item ">

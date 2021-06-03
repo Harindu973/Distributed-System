@@ -11,7 +11,7 @@ function TableDashboard() {
 
   useEffect(async () => {
 
-    await axios.get('https://api.focusoeuvre.tech/erp-focus/api/salary/read.php')
+    await axios.get('https://api.focusoeuvre.tech/erp-focus/api/attendance/read.php')
 
       .then(res => {
         console.log(res.data);
@@ -30,16 +30,14 @@ function TableDashboard() {
       <td>
         <p>{obj.empId}</p>
       </td>
+      {/* <td>
+        <p>{obj.date}</p>
+      </td> */}
       <td>
-        <p>{obj.salaryValue}</p>
+        <p>{obj.time}</p>
       </td>
       <td>
-        <p>{obj.salaryDate}</p>
-      </td>
-      <td>
-        <p>
-          <i className="material-icons option">more_vert</i>
-        </p>
+
       </td>
     </tr>
   })
@@ -49,8 +47,8 @@ function TableDashboard() {
       <MDBTableHead>
         <tr>
           <th>EMPLOYEE ID</th>
-          <th>AMOUNT</th>
-          <th>PAID DATE</th>
+          {/* <th>Date</th> */}
+          <th>Date and Time</th>
           <th></th>
         </tr>
       </MDBTableHead>

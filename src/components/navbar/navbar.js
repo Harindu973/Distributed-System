@@ -114,10 +114,10 @@ class Navbar extends Component {
                 </div>
               </li> */}
               <li>
-                <img src={User} alt="user" />
+                {/* <img src={User} alt="user" /> */}
               </li>
               <li>
-                <img src={ScrollDown} alt="scroll_down" />
+                {/* <img src={ScrollDown} alt="scroll_down" /> */}
               </li>
             </ul>
           </div>
