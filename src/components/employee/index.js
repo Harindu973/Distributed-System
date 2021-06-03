@@ -120,6 +120,7 @@ const Employee = () => {
         addAttendacne();
         console.log('done');
         setModalVisible(false);
+        window.location.reload();
       }
       else {
         store.addNotification({

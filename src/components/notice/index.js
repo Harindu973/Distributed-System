@@ -45,6 +45,7 @@ function Notice() {
           insert: "top",
           dismiss: { duration: 500 },
         })
+        window.location.reload();
       }
       else {
         store.addNotification({
