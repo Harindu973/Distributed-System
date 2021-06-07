@@ -197,9 +197,6 @@ const Employee = () => {
         <MDBModal
           isOpen={modalVisible}
           backdrop={false}
-          // toggle={() => {
-          //   this.setState({ modalVisible: !this.state.modalVisible });
-          // }}
           centered
           className="modal-popup"
         >
@@ -301,7 +298,6 @@ const Employee = () => {
                         onChange={(e) => {
                           e.target.value && setDesignation(e.target.value);
                         }}
-                      // value={designation}
                       />
                     </label>
 

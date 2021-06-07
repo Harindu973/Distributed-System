@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import {
   MDBContainer,
   MDBCol,
@@ -47,7 +48,7 @@ function Dashboard() {
       })
   }
   const getPresent = async () => {
-    await axios.get('https://api.focusoeuvre.tech/erp-focus/api/attendance/read.php')
+    await axios.get('https://api.focusoeuvre.tech/erp-focus/api/attendance/present.php')
 
       .then(res => {
 
@@ -80,20 +81,24 @@ function Dashboard() {
     <MDBContainer>
       <MDBRow>
         <MDBCol>
-          <MDBCard>
-            <MDBCardBody ><h3>  TOTAL EMPLOYEES: {totalEmp} </h3></MDBCardBody>
+
+          <MDBCard  >
+            <div className='card-employee' ><h3>  TOTAL EMPLOYEES: {totalEmp} </h3></div>
+            {/* <MDBCardBody ></MDBCardBody> */}
           </MDBCard>
 
         </MDBCol>
         <MDBCol>
           <MDBCard>
-            <MDBCardBody ><h3> TODAY PRESENT :{totalAttendance} </h3></MDBCardBody>
+            <div className='card-present' ><h3>  TODAY PRESENT :{totalAttendance} </h3></div>
+            {/* <MDBCardBody ><h3> TODAY PRESENT :{totalAttendance} </h3></MDBCardBody> */}
           </MDBCard>
 
         </MDBCol>
         <MDBCol>
           <MDBCard>
-            <MDBCardBody ><h3> PENDING LEAVE REQ : {totalPending} </h3></MDBCardBody>
+            <div className='card-req' ><h3> PENDING LEAVE REQ : {totalPending} </h3></div>
+            {/* <MDBCardBody ><h3> PENDING LEAVE REQ : {totalPending} </h3></MDBCardBody> */}
           </MDBCard>
 
         </MDBCol>
@@ -111,7 +116,7 @@ function Dashboard() {
         <MDBCol>
           <MDBCard className={"full-height-card"}>
             <MDBCardBody>
-              <div>
+              <div className="chart-div">
                 <Calendar
                   onChange={onChange}
                   value={value}

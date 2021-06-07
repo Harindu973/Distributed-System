@@ -12,117 +12,72 @@ import firebaseApp from '../../firebaseauth';
 //const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const firebaseAppAuth = firebaseApp.auth(); const providers = {
-    googleProvider: new firebase.auth.GoogleAuthProvider(),
+  googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
 
 export default function login() {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    var history = useHistory();
-    const [status, setStatus] = useState("logout");
-
-    
-    async function handleLogIn(e) {
-        e.preventDefault();
-        if (email.length == 0) {
-            setError("Eneter the email");
-        }
-
-        if (password.length == 0) {
-            setError("Eneter the password");
-        }
-
-        if (!email || !password) {
-            setError("User Name or password empty ");
-        } else {
-            try {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  var history = useHistory();
+  const [status, setStatus] = useState("logout");
 
 
-
-                
-                console.log("loging  sjd  "+email+" " +password);
-                window.confirm("zzzzzzzzzzzzzzzzzzzzzzzzz<br>etext "+email+" " +password);
-                await firebase.auth().signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                  // Signed in
-                  
-                  var user = userCredential.user;
-                  console.log(user);
-                  setStatus("loged");
-                  console.log("Login" + status);
-                  history.push("/dashboard");
-                  // ...
-                })
-                .catch(function(error) {
-                // Handle Errors here.
-                setError("Email or password incorret");
-                
-
-                 });
-
-
-
-
-                
-            } catch (err) {
-                setError("Email or password incorret");
-                console.log(error);
-            }
-        }
+  async function handleLogIn(e) {
+    e.preventDefault();
+    if (email.length == 0) {
+      setError("Eneter the email");
     }
 
-    return (
-         <div>
-            <div className="wrapper fadeInDown">
-              <div id="formContent">
-                {/* Tabs Titles */}
-                <h2 className="active"> Sign In </h2>
-                <h2 className="inactive underlineHover">Sign Up </h2>
-                {/* Icon */}
-                <div className="fadeIn first">
-                    <center><div id="icon"></div></center>
-                </div>
-                {/* Login Form */}
-                <form onSubmit={handleLogIn}>
-                  <input
-                    type="text"
-                    id="login"
-                    className="fadeIn second"
-                    name="login"
-                    placeholder="Email"
-                    onChange={(e) => {
-                        setEmail(e.target.value);
-                    }}
-                  />
-                  <input
-                    type="text"
-                    id="password"
-                    className="fadeIn third"
-                    name="login"
-                    placeholder="password"
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                    }}
-                  />
-                  <input
-                    type="submit"
-                    className="fadeIn fourth"
-                    defaultValue="Log In"
-                  />
-                </form>
-                {/* Remind Passowrd */}
-                <div id="formFooter">
-                  <a className="underlineHover" href="#">
-                    Forgot Password?
-                  </a>
-                  <p><font color ="red">{error}</font></p>
-                </div>
-              </div>
-            </div>
-          </div>
-    )
+    if (password.length == 0) {
+      setError("Eneter the password");
+    }
+
+    if (!email || !password) {
+      setError("User Name or password empty ");
+    } else {
+      try {
+
+
+
+
+        console.log("loging  sjd  " + email + " " + password);
+        window.confirm("zzzzzzzzzzzzzzzzzzzzzzzzz<br>etext " + email + " " + password);
+        await firebase.auth().signInWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            // Signed in
+
+            var user = userCredential.user;
+            console.log(user);
+            setStatus("loged");
+            console.log("Login" + status);
+            history.push("/dashboard");
+            // ...
+          })
+          .catch(function (error) {
+            // Handle Errors here.
+            setError("Email or password incorret");
+
+
+          });
+
+
+
+
+
+      } catch (err) {
+        setError("Email or password incorret");
+        console.log(error);
+      }
+    }
+  }
+
+  return (
+    <div>
+
+    </div>
+  )
 }
 
 
