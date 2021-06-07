@@ -23,18 +23,14 @@ function Allawance() {
   const dt = null;
   const [salaryDate, setDate] = useState(dt);
 
-  // const handelDate = () => {
-  //   let dt = new Date().toLocaleDateString();
-  //   setDate(dt);
-  // }
-
-
-
-
   const addAllawance = async (e) => {
-    e.preventDefault();
-    let dt = new Date().toLocaleDateString();
+
+    var myCurrentDate = new Date();
+    var dt = myCurrentDate.getFullYear() + '/' + (myCurrentDate.getMonth() + 1) + '/' + myCurrentDate.getDate() + ' ' + myCurrentDate.getHours() + ':' + myCurrentDate.getMinutes();
+
     setDate(dt);
+    e.preventDefault();
+
     var data = {
       empId,
       salaryValue,

@@ -15148,7 +15148,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   position: relative;
   top: 0;
   height: 100vh;
-  background: #bcaaa9;
+  background: #F1F0FE;
 }
 
 .sidebar {
@@ -15158,9 +15158,9 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   left: 0;
   z-index: 2;
   width: 260px;
-  background: black;
-  opacity: 0.7;
-  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  background: #1C2643;
+  /* opacity: 0.7; */
+  /* box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); */
 }
 
 .sidebar .caret {
@@ -15501,7 +15501,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .sidebar[data-color="white"] .nav .nav-item.active>a:not([data-toggle="collapse"]) {
-  color: #3C4858;
+  color: #000;
   opacity: 1;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(60, 72, 88, 0.4);
 }
@@ -18697,7 +18697,7 @@ Copyright (c) 2015 Daniel Eden
   }
 
   .navbar-collapse .navbar-nav .nav-item .nav-link {
-    color: #3C4858;
+    color: #000102;
     margin: 5px 15px;
   }
 

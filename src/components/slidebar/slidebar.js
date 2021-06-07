@@ -7,7 +7,7 @@ import Charges from "../../assets/images/money.png";
 import { Link } from "react-router-dom";
 import "./slidebar.css";
 //import "./newsletter.css";
-
+import LOGO from './logofb2.jpg';
 class SideBar extends Component {
   render() {
     // console.log("---query name---", this.props);
@@ -17,7 +17,7 @@ class SideBar extends Component {
         className="sidebar"
         data-color="purple"
         data-background-color="white"
-        data-image="../assets/img/sidebar-1.jpg"
+        data-image={LOGO}
       >
         {/*
                 Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"

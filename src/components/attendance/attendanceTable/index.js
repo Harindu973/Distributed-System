@@ -11,7 +11,8 @@ function TableDashboard() {
 
   useEffect(async () => {
 
-    await axios.get('https://api.focusoeuvre.tech/erp-focus/api/attendance/read.php')
+    await axios.get('https://api.focusoeuvre.tech/erp-focus/api/attendance/present.php') //only prsent
+      // await axios.get('https://api.focusoeuvre.tech/erp-focus/api/attendance/read.php') // all
 
       .then(res => {
         console.log(res.data);

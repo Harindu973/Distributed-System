@@ -26,7 +26,7 @@ function Attendance() {
 
 
   useEffect(async () => {
-    await axios.get('https://api.focusoeuvre.tech/erp-focus/api/attendance/read.php')
+    await axios.get('https://api.focusoeuvre.tech/erp-focus/api/attendance/present.php')
       .then(res => {
         console.log(res.data.length);
         setTotal(res.data.length);
@@ -41,7 +41,7 @@ function Attendance() {
     e.preventDefault();
     // let dt = new Date().toLocaleDateString();
     var myCurrentDate = new Date();
-    var dt = myCurrentDate.getFullYear() + '/' + (myCurrentDate.getMonth() + 1) + '/' + myCurrentDate.getDate() + ' ' + myCurrentDate.getHours() + ':' + myCurrentDate.getMinutes();
+    var dt = myCurrentDate.getFullYear() + '-' + (myCurrentDate.getMonth() + 1) + '-' + myCurrentDate.getDate() + '- ' + myCurrentDate.getHours() + ':' + myCurrentDate.getMinutes();
 
 
 

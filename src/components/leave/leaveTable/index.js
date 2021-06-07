@@ -108,6 +108,9 @@ function TableDashboard() {
         <p>{obj.leaveDate}</p>
       </td>
       <td>
+        <p>{obj.leaveType}</p>
+      </td>
+      <td>
         <p>{obj.leaveDesc}</p>
       </td>
       <td>
@@ -144,6 +147,7 @@ function TableDashboard() {
             <th>ID</th>
             <th>EMPLOYEE ID</th>
             <th>Date</th>
+            <th>leave Type</th>
             <th>Reason</th>
             <th>Time from</th>
             <th>Status</th>

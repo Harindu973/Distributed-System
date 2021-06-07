@@ -69,7 +69,7 @@ export default function LoginComp() {
   }
 
   return (
-    <div>
+    <div >
       <div className="wrapperlog fadeInDown">
         <div id="formContent">
           {/* Tabs Titles */}
@@ -105,14 +105,13 @@ export default function LoginComp() {
           </form>
           {/* Remind Passowrd */}
           <div id="formFooter">
-            <a className="underlineHover" href="#">
-              Forgot Password?
-                  </a>
+
             <p><font color="red">{error}</font></p>
           </div>
         </div>
       </div>
     </div>
+
   )
 }
 

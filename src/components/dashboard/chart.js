@@ -20,7 +20,6 @@ const Donut = (Component) => {
     await axios.get('https://api.focusoeuvre.tech/erp-focus/api/attendance/read.php')
 
       .then(res => {
-
         console.log(res.data.length);
         setTotalAttendance(res.data.length);
 
